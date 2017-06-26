@@ -108,6 +108,12 @@ deps_command_generator() {
 ############################################################
 # inb4 passes
 
+declare inb4_comment_char
+inb4_find_comment_char() {
+    inb4_comment_char='#'
+    :
+}
+
 declare -a inb4_sorted
 inb4_sort() {
     inb4_sorted=()
