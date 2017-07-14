@@ -21,13 +21,12 @@ load test_helper/bats-assert/load
     # the first comment-char-setting line (if any) and set a shell variable
     # with the comment char
 
-    inb4_find_comment_char <(sed -e 's/^        //' <<.
-        \" foobar
-        :command
-        \" :inb4:
-        \" Since we now have the comment character, the following is a no-op
-        # :inb4:
+    inb4_find_comment_char <<.
+" foobar
+:command
+" :inb4:
+" Since we now have the comment character, the following is a no-op
+# :inb4:
 .
-        )
     assert_equal "$inb4_comment_char" '"'
 }

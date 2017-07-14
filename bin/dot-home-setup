@@ -110,8 +110,8 @@ deps_command_generator() {
 
 declare inb4_comment_char
 inb4_find_comment_char() {
-    inb4_comment_char='#'
-    :
+    inb4_comment_char="$(sed -n '/^\(.\) :inb4:/{s//\1/p;q;}')"
+    [[ -n $inb4_comment_char ]] || inb4_comment_char='#'
 }
 
 declare -a inb4_sorted
