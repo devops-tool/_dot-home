@@ -35,7 +35,8 @@ teardown() {
     rm -rf "$test_home"/.home/DEP-?/.git
 
     assert_success_and_diff_test_home_with <<.
-        .local/bin/prog -> ../../.home/AAA/bin/prog         # direct link
+        .local/bin/prog -> ../../.home/AAA/bin/prog         # direct links
+        .local/share/data -> ../../.home/_inb4/share/data
         .home/,inb4/dot/config                              # built files
         .home/,inb4/share/data
         .home/_inb4/dot/config              # installed file (directly linked)
